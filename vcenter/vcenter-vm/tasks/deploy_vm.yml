@@ -1,0 +1,26 @@
+---
+    - name: Deploy VM on Vcenter while cloning the template
+      vmware_guest:
+         hostname: "{{ vcenter_server }}"
+         username: "{{ vcenter_user }}"
+         password: "{{ vcenter_pass }}"
+         validate_certs: False
+         name: "{{ config_attributes.vcenter.vc_vm_name | default(vc_vm_name) }}"
+         template: "{{ config_attributes.vcenter.template | default(template) }}"
+         datacenter: "{{ datacenter_name }}"
+         folder: /{{ datacenter_name }}/vm/Workspace/Projects/CoPS/Test
+         cluster: "{{ cluster_name }}"
+         datastore: "{{ datastore_name }}"
+         networks:
+         - name: "{{ network_name }}"
+           type: dhcp
+        #  state: "{{ state }}"
+         wait_for_ip_address: yes
+      register: facts
+
+
+
+
+   
+
+   

@@ -1,0 +1,5 @@
+---
+vcenter_server: server_name
+vcenter_user: username
+vcenter_pass: password
+state: present
